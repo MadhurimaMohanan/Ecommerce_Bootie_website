@@ -1,0 +1,278 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<head>
+<title>Ee commerce admin dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="/static/admin_assets/css/bootstrap.min.css" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="/static/admin_assets/css/style.css" rel='stylesheet' type='text/css' />
+<link href="/static/admin_assets/css/style-responsive.css" rel="stylesheet"/>
+<!-- font CSS -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="/static/admin_assets/css/font.css" type="text/css"/>
+<link href="/static/admin_assets/css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<script src="/static/admin_assets/js/jquery2.0.3.min.js"></script>
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+
+    <a href="index.html" class="logo">
+        Bootie
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+
+
+
+</header>
+<!--header end-->
+<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin_logout/">
+                        <i class="fa fa-user"></i>
+                        <span>Log out</span>
+                    </a>
+                </li>
+            </ul>            </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<!--sidebar end-->
+<!--main content start-->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Add Product</h4>
+            </div>
+            <div class="modal-body">
+
+                <form role="form" method="post" action="/add_product/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Product Name</label>
+                        <input type="text" name="product_name" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Price</label>
+                        <input type="text" name="price"class="form-control" id="exampleInputPassword3" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Upload Image</label>
+                        <input type="file" name="image" id="exampleInputFile3">
+                        <!-- <p class="help-block">Example block-level help text here.</p> -->
+                    </div>
+                    <!-- <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div> -->
+                    <button type="submit" class="btn btn-default" style="background-color: #ddede0;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal1" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Edit Product</h4>
+            </div>
+            <div class="modal-body">
+
+                <form role="form" method="post" action="/update_product/" enctype="multipart/form-data" id="formedit">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" class="form-control" id="exampleInputEmail3" >
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Product Name</label>
+                        <input type="text" name="product_name" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Price</label>
+                        <input type="text" name="price"class="form-control" id="exampleInputPassword3" placeholder="Password">
+                    </div>
+                    
+                        
+                        
+                    
+                    <div class="form-group">
+                        <label for="exampleInputFile">Upload Image</label>
+                        <input type="file" name="image" id="exampleInputFile3"><br>
+                        <a href="{{x.image.url}}" target="_blank" name="imageurl">preview image</a>
+                        <!-- <p class="help-block">Example block-level help text here.</p> -->
+                    </div>
+                    <!-- <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div> -->
+                    <button type="submit" class="btn btn-default" style="background-color: #ddede0;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal2" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Do you want to delete product</h4>
+            </div>
+            <div class="modal-body">
+
+                <form role="form" method="post" action="/delete_product/" id="formedit">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" class="form-control" id="exampleInputEmail3" >
+                    <center><button type="submit" class="btn btn-default" style="background-color: #ddede0;">Delete</button></center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="main-content">
+	<section class="wrapper">
+        <a href="#myModal" data-toggle="modal" class="btn btn-success btn-lg" style="float: right;background-color: #ddede0;color: black;font-size: 16px;">
+            Add Product
+        </a>
+<div class="table-agile-info" style="margin-top: 50px;">
+           
+ <div class="panel panel-default">
+    <div class="panel-heading">
+     Product table
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
+          <tr>
+            <th data-breakpoints="xs">ID</th>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        {% for x in products %}
+        <tbody class="my-list-container">
+        
+          <tr data-expanded="true" class="my-container" product_id="{{x.id}}"product_name="{{x.product_name}}"image="{{x.image.url}}" price="{{x.price}}">
+            <td>{{forloop.counter}}</td>
+            <td><img src="{{ x.image.url }}" style="width: 100px; height: auto;"></td>
+            <td>{{x.product_name}}</td>
+            <td>{{x.price}}</td>
+            <td><a href="#myModal1" data-toggle="modal" class="btn btn-success my_edit_btn" style="background-color: #ddede0;color: black;font-size: 16px;">
+                Edit
+            </a>
+            <a href="#myModal2" data-toggle="modal" class="btn btn-success my_delete_btn " style="background-color: #ddede0;color: black;font-size: 16px;">
+                Delete
+            </a></td>
+          </tr>
+        
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+ <!-- footer -->
+		  <div class="footer">
+			<div class="wthree-copyright">
+			  <p>© 2023 Ee-commerce. All rights reserved | Design by <a href="#">Eecommerce</a></p>
+			</div>
+		  </div>
+  <!-- / footer -->
+</section>
+
+<!--main content end-->
+</section>
+<script src="/static/admin_assets/js/bootstrap.js"></script>
+<script src="/static/admin_assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/static/admin_assets/js/scripts.js"></script>
+<script src="/static/admin_assets/js/jquery.slimscroll.js"></script>
+<script src="/static/admin_assets/js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/static/admin_assets/js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="/static/admin_assets/js/jquery.scrollTo.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+        $(".my_edit_btn").on("click", function (e) {
+            console.log("edit");
+            let product_id=$(this).closest(".my-list-container").find('.my-container').attr("product_id");
+            let product_name=$(this).closest(".my-list-container").find('.my-container').attr("product_name");
+            let image=$(this).closest(".my-list-container").find('.my-container').attr("image");
+            console.log(image)
+            let price=$(this).closest(".my-list-container").find('.my-container').attr("price");
+
+            $("#formedit  input[name='product_id']").val( product_id  );
+            $("#formedit  input[name='product_name']").val( product_name );
+            $("#formedit  input[name='price']").val( price  );
+            $("#formedit a[name='imageurl']").attr("href", image);
+            
+        });
+
+    })
+</script>
+
+<script>
+    $(document).ready(function() {
+
+        $(".my_delete_btn").on("click", function (e) {
+            console.log("edit");
+            let product_id=$(this).closest(".my-list-container").find('.my-container').attr("product_id");
+            console.log(product_id)
+            $("#formedit  input[name='product_id']").val( product_id  );
+            
+            
+        });
+
+    })
+</script>
+</body>
+</html>
